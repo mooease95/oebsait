@@ -1,3 +1,7 @@
+:root {
+    --header-height: 80px;
+}
+
 .site-header {
     width: 100%;
     background: #0f0f0f; /* subtle contrast against black body */
@@ -11,7 +15,7 @@
     /* Set the total height of the inner header here */
     height: var(--header-height);
 
-    /* Reduce the inner padding as the height is now fixed */
+    /* Reduce the inner padding as the height is fixed */
     padding: 0 16px;
 
     display: flex;
