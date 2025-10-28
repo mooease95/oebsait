@@ -4,22 +4,20 @@
 
 .site-header {
     width: 100%;
-    background-image: linear-gradient(to right, #ffffff 80%, #000000 0%);
+    background-image: linear-gradient(to right, #ffffff 80%, #000000 0%); /* White dashed line */
     background-repeat: repeat-x;
     background-position: 0 var(--header-height);
-    background-size: 30px 2px;
-    padding-bottom: 3px; /* This allows the 2px line to be visible. */
+    background-size: 30px 2px; /* 30px wide, 2px height */
+    padding-bottom: 6px; /* This allows the 2px line to be visible. */
+    /* Total height of the header is var(--header-height) + padding-bottom */
     font-family: "Courier New", Courier, monospace;
 }
 
 .site-header .header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    /* Set the total height of the inner header here */
-    height: var(--header-height);
-
-    /* Reduce the inner padding as the height is fixed */
-    padding: 0 16px;
+    height: 70px;
+    padding: 4px 16px;
 
     display: flex;
     align-items: center;
@@ -36,9 +34,11 @@
 }
 
 .site-header .brand-logo {
-    height: var(--header-height);
+    height: 74px;
     width: auto;
     display: block;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Nav */
@@ -67,11 +67,13 @@
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.site-header .brand-logo:hover,
+.site-header .brand-logo:focus-visible,
 .site-header .nav-link:hover,
 .site-header .nav-link:focus-visible {
     background-color: #1e1e1e;
     color: #ffffff;
-    outline: none;
+    outline: 3px dashed white;
 }
 
 @media (max-width: 520px) {
