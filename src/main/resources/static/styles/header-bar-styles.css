@@ -4,9 +4,12 @@
 
 .site-header {
     width: 100%;
-    background: #0f0f0f; /* subtle contrast against black body */
+    background-image: linear-gradient(to right, #ffffff 80%, #000000 0%);
+    background-repeat: repeat-x;
+    background-position: 0 var(--header-height);
+    background-size: 30px 2px;
+    padding-bottom: 3px; /* This allows the 2px line to be visible. */
     font-family: "Courier New", Courier, monospace;
-    border-bottom: 3px dashed white;
 }
 
 .site-header .header-inner {
