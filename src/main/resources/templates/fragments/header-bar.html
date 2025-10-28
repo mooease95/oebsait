@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link rel="stylesheet" href="/styles/landing-page-style.css">
-</head>
-<body>
-<header class="site-header" aria-label="Site header">
-    <link rel="stylesheet" href="/styles/header-bar-styles.css">
+<header class="site-header" aria-label="Site header" th:fragment="header-bar">
     <div class="header-inner">
         <a class="brand" href="/">
             <img src="/images/logo.png" alt="" class="brand-logo">
@@ -24,11 +14,3 @@
         </nav>
     </div>
 </header>
-<main>
-    <h1><span class="phonetic-name">moo&middot;ease</span></h1>
-    <div class="landing-profile-picture">
-        <img src="/images/profile-picture.jpg" alt="Profile picture">
-    </div>
-</main>
-</body>
-</html>
