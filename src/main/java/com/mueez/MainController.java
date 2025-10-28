@@ -13,7 +13,7 @@ public class MainController {
 
     @GetMapping("/about")
     public String about() {
-        return "default-error-page";
+        return "about-me-page";
     }
 
     @GetMapping("/engineering")

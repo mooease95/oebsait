@@ -1,0 +1,11 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: black;
+    margin: 0; /* full-bleed header/background */
+    color: white;
+}
+
+main > h1,
+main > p {
+    text-align: center;
+}
