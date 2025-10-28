@@ -1,5 +1,6 @@
 body {
     font-family: "Courier New", Courier, monospace;
+    background-color: black; /* darker grey background */
 }
 
 .landing-profile-picture {
@@ -18,7 +19,11 @@ h1 span.phonetic-name {
     /* Makes the phonetic parts bold and slightly separate */
     font-weight: 800;
     letter-spacing: 1px;
-    color: #007bff; /* Example color to draw attention */
+    color: white; /* Example color to draw attention */
+}
+
+p span.surname-joke {
+    color: white;
 }
 
 main > h1,
