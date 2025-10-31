@@ -36,6 +36,11 @@ public class MainController {
         return "default-error-page";
     }
 
+    @GetMapping("/mueezings")
+    public String mueezings() {
+        return "default-error-page";
+    }
+
     @GetMapping("/contact")
     public String contact() {
         return "default-error-page";
