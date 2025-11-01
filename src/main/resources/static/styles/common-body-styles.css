@@ -9,3 +9,13 @@ main > h1,
 main > p {
     text-align: center;
 }
+
+.centered-page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.centered-page-content p {
+    text-align: left;
+}

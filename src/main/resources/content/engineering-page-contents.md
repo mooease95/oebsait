@@ -8,6 +8,8 @@ down a fun rabbit hole of research.
 
 Some of the core technologies I use are: Spring, aeron, artio, agrona, etc.
 
+---
+
 ## Personal Dabblings
 
 Is there a greater rush than creating a new GitHub repo, committing "initial commit",
@@ -32,10 +34,12 @@ wobbbles is a CRUD gym application written with my friend. A test version has be
 published on the Android Play Store. Lot of comments were received, which are yet to
 be implemented.
 
+---
+
 ## Projects at University
 
 As a Computer Science alumnus of the University of Bath, I have had my share of
-projects. There is only worth mentioning here though.
+projects. There is only one worth mentioning here though.
 
 ### SENTiment
 

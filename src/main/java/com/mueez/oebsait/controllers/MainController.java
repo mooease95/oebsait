@@ -30,7 +30,7 @@ public class MainController {
         String engineeringHtmlContent = markdownService.loadAndRender("engineering-page-contents.md");
 
         model.addAttribute("engineeringContent", engineeringHtmlContent);
-        // model.addAttribute("pageTitle", "Engineering Log: Low-Latency Systems");
+        model.addAttribute("pageTitle", "Engineering");
 
         // Returns src/main/resources/templates/engineering.html
         return "engineering";

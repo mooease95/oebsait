@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(pageTitle, content)">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${pageTitle}">Default Title</title>
+
+    <link rel="stylesheet" th:href="@{/styles/common-body-styles.css}">
+    <link rel="stylesheet" th:href="@{/styles/header-bar-styles.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header-bar :: header-bar}"></div>
+
+<main>
+    <div th:replace="${content}">Page Content Goes Here</div>
+</main>
+</body>
+</html>
