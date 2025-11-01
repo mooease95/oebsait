@@ -1,4 +1,4 @@
-package com.mueez;
+package com.mueez.oebsait;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
