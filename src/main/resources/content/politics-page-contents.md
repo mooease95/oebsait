@@ -1,0 +1,1 @@
+Planet and people over profit.
