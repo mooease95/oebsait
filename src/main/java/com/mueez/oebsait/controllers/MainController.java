@@ -16,6 +16,7 @@ public class MainController {
 
     @GetMapping(value = {"/", "/home"})
     public String home() {
+        System.out.println("Home page requested");
         return "landing-page";
     }
 
@@ -26,6 +27,7 @@ public class MainController {
 
     @GetMapping("/engineering")
     public String engineering(Model model) {
+        System.out.println("Engineering page requested");
         // Load, parse, and convert the Markdown file to HTML
         String engineeringHtmlContent = markdownService.loadAndRender("engineering-page-contents.md");
 
@@ -37,6 +39,7 @@ public class MainController {
 
     @GetMapping("/sports")
     public String sports(Model model) {
+        System.out.println("Sports page requested");
         // Load, parse, and convert the Markdown file to HTML
         String sportsHtmlContent = markdownService.loadAndRender("sports-page-contents.md");
 
@@ -48,6 +51,7 @@ public class MainController {
 
     @GetMapping("/food")
     public String food(Model model) {
+        System.out.println("Food page requested");
         // Load, parse, and convert the Markdown file to HTML
         String foodHtmlContent = markdownService.loadAndRender("food-page-contents.md");
 
@@ -59,6 +63,7 @@ public class MainController {
 
     @GetMapping("/politics")
     public String politics(Model model) {
+        System.out.println("Politics page requested");
         // Load, parse, and convert the Markdown file to HTML
         String politicsHtmlContent = markdownService.loadAndRender("politics-page-contents.md");
 
@@ -70,6 +75,7 @@ public class MainController {
 
     @GetMapping("/mueezings")
     public String mueezings(Model model) {
+        System.out.println("Mueezings page requested");
         // Load, parse, and convert the Markdown file to HTML
         String mueezingsHtmlContent = markdownService.loadAndRender("mueezings-page-contents.md");
 
@@ -81,6 +87,7 @@ public class MainController {
 
     @GetMapping("/contact")
     public String contact(Model model) {
+        System.out.println("Contact page requested");
         // Load, parse, and convert the Markdown file to HTML
         String contactHtmlContent = markdownService.loadAndRender("contact-page-contents.md");
 
