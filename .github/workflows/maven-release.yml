@@ -1,0 +1,39 @@
+name: Maven Release
+
+on:
+  workflow_dispatch: # Trigger manually from the Actions tab
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Crucial: Allows the bot to push commits and tags
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Use a 'ref' to ensure you are on a branch,
+          # and 'fetch-depth: 0' so tags are visible
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          server-id: github
+          settings-path: ${{ github.workspace }}
+
+      - name: Configure Git User
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Execute Maven Release
+        # -B runs in non-interactive mode (Batch)
+        # release:prepare handles versioning and tagging
+        # release:perform handles the 'mvn deploy' to GitHub Packages
+        run: mvn -B release:prepare release:perform
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
