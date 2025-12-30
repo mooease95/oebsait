@@ -34,6 +34,7 @@ jobs:
         # -B runs in non-interactive mode (Batch)
         # release:prepare handles versioning and tagging
         # release:perform handles the 'mvn deploy' to GitHub Packages
-        run: mvn -B release:prepare release:perform
+        # run: mvn -B release:prepare release:perform
+        run: mvn -B release:prepare release:perform -Darguments="-s ${{ github.workspace }}/settings.xml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
