@@ -11,7 +11,7 @@
 
     <groupId>com.mueez</groupId>
     <artifactId>oebsait</artifactId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
     <name>oebsait</name>
     <description>Personal website - Spring MVC endpoint</description>
 
@@ -94,7 +94,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/mooease95/oebsait.git</developerConnection>
-      <tag>v1.4</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
