@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
-        <File name="FileAppender" fileName="log/oebsait.log">
+        <RollingFile name="FileAppender"
+                     fileName="log/oebsait.log"
+                     filePattern="log/oebsait-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] %logger{36} - %msg%n</Pattern>
             </PatternLayout>
-        </File>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <AsyncRoot level="INFO">
