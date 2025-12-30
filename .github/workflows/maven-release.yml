@@ -42,7 +42,7 @@ jobs:
       - name: Execute Maven Release
         run: |
           mvn -B release:prepare release:perform \
-          -Darguments="-s ${{ github.workspace }}/settings.xml -DGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" \
-          -DreleaseProfiles=github
+            -s ${{ github.workspace }}/settings.xml \
+            -Darguments="-s ${{ github.workspace }}/settings.xml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
