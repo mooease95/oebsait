@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%level] %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
         <RollingFile name="FileAppender"
                      fileName="log/oebsait.log"
                      filePattern="log/oebsait-%d{yyyy-MM-dd}-%i.log.gz">
@@ -15,6 +20,7 @@
     </Appenders>
     <Loggers>
         <AsyncRoot level="INFO">
+            <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </AsyncRoot>
     </Loggers>

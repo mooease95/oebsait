@@ -1,16 +1,30 @@
 package com.mueez.oebsait.controllers;
 
 import com.mueez.oebsait.services.MarkdownService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Map;
+
 @Controller
 public class MainController {
 
     private static final Logger LOGGER = LogManager.getLogger(MainController.class);
+
+    private record PageConfig(String markdownFile, String title) {}
+
+    private static final Map<String, PageConfig> PAGES = Map.of(
+        "engineering", new PageConfig("engineering-page-contents.md", "Engineering"),
+        "sports",      new PageConfig("sports-page-contents.md",      "SPORTS"),
+        "food",        new PageConfig("food-page-contents.md",        "Food"),
+        "politics",    new PageConfig("politics-page-contents.md",    "Politics"),
+        "mueezings",   new PageConfig("mueezings-page-contents.md",   "Mueezings"),
+        "contact",     new PageConfig("contact-page-contents.md",     "Contact")
+    );
 
     private final MarkdownService markdownService;
 
@@ -29,75 +43,13 @@ public class MainController {
         return "about-me-page";
     }
 
-    @GetMapping("/engineering")
-    public String engineering(Model model) {
-        LOGGER.info("Engineering page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String engineeringHtmlContent = markdownService.loadAndRender("engineering-page-contents.md");
-
-        model.addAttribute("engineeringContent", engineeringHtmlContent);
-        model.addAttribute("pageTitle", "Engineering");
-
-        return "engineering";
-    }
-
-    @GetMapping("/sports")
-    public String sports(Model model) {
-        LOGGER.info("Sports page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String sportsHtmlContent = markdownService.loadAndRender("sports-page-contents.md");
-
-        model.addAttribute("sportsContent", sportsHtmlContent);
-        model.addAttribute("pageTitle", "SPORTS");
-
-        return "sports";
-    }
-
-    @GetMapping("/food")
-    public String food(Model model) {
-        LOGGER.info("Food page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String foodHtmlContent = markdownService.loadAndRender("food-page-contents.md");
-
-        model.addAttribute("foodContent", foodHtmlContent);
-        model.addAttribute("pageTitle", "Food");
-
-        return "food";
-    }
-
-    @GetMapping("/politics")
-    public String politics(Model model) {
-        LOGGER.info("Politics page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String politicsHtmlContent = markdownService.loadAndRender("politics-page-contents.md");
-
-        model.addAttribute("politicsContent", politicsHtmlContent);
-        model.addAttribute("pageTitle", "Politics");
-
-        return "politics";
-    }
-
-    @GetMapping("/mueezings")
-    public String mueezings(Model model) {
-        LOGGER.info("Mueezings page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String mueezingsHtmlContent = markdownService.loadAndRender("mueezings-page-contents.md");
-
-        model.addAttribute("mueezingsContent", mueezingsHtmlContent);
-        model.addAttribute("pageTitle", "Mueezings");
-
-        return "mueezings";
-    }
-
-    @GetMapping("/contact")
-    public String contact(Model model) {
-        LOGGER.info("Contact page requested");
-        // Load, parse, and convert the Markdown file to HTML
-        String contactHtmlContent = markdownService.loadAndRender("contact-page-contents.md");
-
-        model.addAttribute("contactContent", contactHtmlContent);
-        model.addAttribute("pageTitle", "Contact");
-
-        return "contact";
+    @GetMapping({"/engineering", "/sports", "/food", "/politics", "/mueezings", "/contact"})
+    public String contentPage(HttpServletRequest request, Model model) {
+        String page = request.getRequestURI().substring(1);
+        LOGGER.info("{} page requested", page);
+        PageConfig config = PAGES.get(page);
+        model.addAttribute("pageContent", markdownService.loadAndRender(config.markdownFile()));
+        model.addAttribute("pageTitle", config.title());
+        return "markdown-page";
     }
 }
